@@ -1,75 +1,74 @@
-<!-- README.md -->
-
-<h1 align="center">👨‍💻 Zokan | Desarrollador Full Stack & Python 🐍</h1>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Code-Java-blue?style=for-the-badge&logo=java">
-  <img src="https://img.shields.io/badge/Code-HTML5-orange?style=for-the-badge&logo=html5">
-  <img src="https://img.shields.io/badge/Code-CSS3-blue?style=for-the-badge&logo=css3">
-  <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript">
-  <img src="https://img.shields.io/badge/Code-Python-green?style=for-the-badge&logo=python">
-  <img src="https://img.shields.io/badge/Mobile-Android-black?style=for-the-badge&logo=android">
-</p>
+# Curso_junior
+🚀 Curso Intensivo – Desarrollador Full Stack 
 
 ---
 
-## 🚀 Sobre mí
-
-Soy un desarrollador apasionado por la programación, los retos técnicos y la automatización. Me encanta construir soluciones robustas desde cero y combinar frontend, backend y automatización para lograr productos sólidos y funcionales.
-
----
-
-## 🧠 Tecnologías que domino
-
-### 💻 Lenguajes de Programación
-- 🐍 **Python** – Automatización, backend, data science, algoritmos.
-- ☕ **Java** – Aplicaciones empresariales y Android.
-- 🧾 **HTML** – Estructura semántica web.
-- 🎨 **CSS** – Maquetación responsiva con Flexbox y Grid.
-- ⚡ **JavaScript** – Interactividad, lógica en navegador, DOM.
-
-### 📱 Desarrollo móvil
-- 🤖 **Apps Android (Java)** – Interfaces nativas y uso de API REST.
-- 📦 Publicación y testing en entornos Android Studio.
-
-### 🛠️ Frameworks y herramientas
-- 🔧 Git & GitHub – Control de versiones profesional.
-- 🧪 VSCode – Editor principal de desarrollo.
-- 📁 JSON, APIs, Shell scripts, Bash.
-- 📊 Automatización de procesos con scripts personalizados.
+![GitHub last commit](https://img.shields.io/github/last-commit/zokan121522/curso_junior)
+![GitHub repo size](https://img.shields.io/github/repo-size/zokan121522/curso_junior)
+![GitHub language count](https://img.shields.io/github/languages/count/zokan121522/curso_junior)
+![GitHub top language](https://img.shields.io/github/languages/top/zokan121522/curso_junior)
 
 ---
 
-## 📌 Proyectos destacados
+## 🧠 Descripción
 
-| Proyecto | Tecnología | Descripción |
-|---------|------------|-------------|
-| `Jarvis Protocol` | Python · Terminal UI · Trading | Sistema de trading algorítmico modular con Dashboard CLI. |
-| `App Android: Diario Personal` | Java · SQLite · Android SDK | App móvil offline para registrar pensamientos y emociones. |
-| `Portafolio Web` | HTML · CSS · JS | Web responsive para mostrar proyectos personales y contacto. |
+Este repositorio documenta mi formación intensiva para convertirme en **Desarrollador Full Stack Junior en solo 3 meses**.  
+Incluye apuntes, ejercicios, proyectos prácticos y todo el material necesario para dominar un stack web completo y conseguir empleo al finalizar.
 
 ---
 
-## 🎯 Objetivos actuales
+## 🗂️ Estructura del curso
 
-- 💼 Conseguir una posición como **desarrollador junior** en entornos Python o Full Stack.
-- 🧠 Aprender frameworks modernos como React y Flask.
-- ⚙️ Automatizar tareas complejas mediante scripts CLI avanzados.
-
----
-
-## 📫 ¿Hablamos?
-
-- ✉️ Email: [tuemail@ejemplo.com]
-- 🌐 LinkedIn: [linkedin.com/in/tuusuario](https://linkedin.com/in/tuusuario)
-- 🖥️ Portfolio: [https://tuportafolio.dev](https://tuportafolio.dev)
+| Fase             | Duración | Contenido clave                                        |
+|------------------|----------|--------------------------------------------------------|
+| 🔰 Fundamentos    | Semanas 1–2  | Python, HTML, CSS, Git, lógica                       |
+| ⚙️ Stack completo | Semanas 3–5  | React, Tailwind, FastAPI, SQL                        |
+| 🧠 Profundización | Semanas 6–8  | APIs, Docker, testing, optimización                  |
+| 💼 Portfolio      | Semanas 9–12 | Portfolio web, CV, LinkedIn, simulaciones, ofertas   |
 
 ---
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tuusuario&layout=compact&theme=github_dark" />
-</p>
+## 💻 Tecnologías principales
 
-<p align="center">
-  ¡Gracias por visitar mi perfil! 🌟
-</p>
+- **Frontend:** HTML, CSS, JavaScript, React, Tailwind
+- **Backend:** Python, FastAPI
+- **BBDD:** SQLite, PostgreSQL
+- **DevOps:** Git, GitHub Actions, Docker
+- **Testing:** Pytest, Jest
+- **Herramientas:** VSCode, Postman, GitHub CLI
+
+---
+
+## 📁 Contenido del repositorio
+
+curso_junior/x
+-  fundamentos/         # Python, HTML, CSS, Git
+-  proyectos/           # Proyectos por fase
+-  backend/             # API con FastAPI
+-  rontend/             # React + Tailwind
+-  data/                # Bases de datos y fixtures
+-  deploy/              # Configuración Docker, CI/CD
+-  README.md
+
+---
+
+## 📌 Objetivo final
+
+Conseguir trabajo como **Desarrollador Full Stack Junior** mostrando:
+- Mis 3 mejores proyectos
+- Mi portfolio profesional
+- Buen dominio del stack moderno
+- Trabajo limpio, versionado y real
+
+---
+
+## 📫 Contacto
+
+📍 Jaime Vilaplana Rejón  
+🔗 [LinkedIn](https://www.linkedin.com/in/zokan121522)
+✉️ zokan300524@gmail.com
+
+---
+
+> 💬 *“No se trata solo de aprender a programar, sino de demostrar que puedo resolver problemas reales con código.”*
+
