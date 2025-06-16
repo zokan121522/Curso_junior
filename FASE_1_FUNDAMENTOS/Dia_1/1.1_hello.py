@@ -1,5 +1,10 @@
 # hello.py
+"""
+Creamos un archivo básico que usa:
+- Variables (str, int, float, bool)
+- print() para mostrar en pantalla
 
+"""
 nombre = "zokan"    # string
 edad = 41           # int
 altura = 1.74       # float
