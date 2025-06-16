@@ -61,6 +61,7 @@ print(f"´ Los {minutos_pedidos} minutos que has solicitado son {segundos} segun
 🧪 EJERCICIO 5 – Saludo personalizado
 Pide el nombre y el país del usuario y muestra un saludo tipo:
 """
+
 """
 nombre= input(f"Hola como te llamas ? ")
 pais = input(f"De donde eres")
