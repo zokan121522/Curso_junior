@@ -79,10 +79,8 @@ def calcular_tiempo(kilometros,kilometros_hora):
 print(calcular_tiempo(200,100))
 """
 
-
+# ✅ Ejercicio 7 – Calcular nota final de examen 📚
 """
-✅ Ejercicio 7 – Calcular nota final de examen 📚
-
 Crea una función nota_final(examen, trabajo, extra=0)
 	•	La nota final se calcula como:
 examen * 0.6 + trabajo * 0.4 + extra
@@ -90,7 +88,74 @@ examen * 0.6 + trabajo * 0.4 + extra
 	•	Devuelve la nota final total (puede pasar de 10)
 """
 
+# Primero logica luego codigo
+"""
+## 1. Objetivo
+    - Calcular la nota final del trimestre
+
+## 2. Datos de entrada
+    1. examen * 0.6
+    2. trabajo * 0.4
+    3. extra = 0
+
+## 3. Pasos logicos mentales
+    1. Examen = examen_nota * 0.6
+    2. trabajo = trabajo_nota * 0.4
+    3. total = examen + trabajo + extra
+    4. return total
+"""
+
+"""
 def calcular (examen, trabajo, extra=0):
     nota_final = examen * 0.6 + trabajo * 0.4 + extra
     return nota_final
 print(calcular(5,5,1))
+"""
+
+# 🔁 5 EJERCICIOS DE REPASO GLOBAL (Días 1–3)
+# 1. crear_perfil() → Pide nombre, edad, ciudad y devuelve texto
+"""
+print("Creando perfil")
+nombre = input("Nombre de usuario: ")
+edad = input("Edad: ")
+domicilio = input ("Domicilio: ")
+print(f"Hola {nombre} tienes {edad} años y vives en {domicilio}")
+"""
+
+# 2. validar_login(usuario, clave) → Comprueba si es "admin" y "1234"
+"""
+usuario = input("Usuario: ")
+clave = input("Clave: ")
+if usuario == "admin" and clave == ("1234"):
+    print("Puedes pasar")
+else:
+    print("Usuario o clave mal puestos")
+"""
+
+# 3. es_adulto(edad) → Devuelve True o False
+"""
+es_adulto = int(input("Eres adulto? "))
+if es_adulto > 18:
+    print("Eres adulto")
+else:
+    print("Eres menor de edad")
+"""
+
+# 4. evaluar_nota(nota) → Devuelve "Aprobado", "Suspenso"…
+"""
+evaluar_nota = float (input("Que nota has sacado? "))
+if evaluar_nota < 5:
+    print(f"Tu nota es {evaluar_nota} por lo tanto has suspendido ")
+else:
+    print(f"Tu nota es {evaluar_nota} por lo tanto has aprobado")
+
+"""
+
+# 5. es_valido(nombre) → Rechaza "admin", "root" o vacío
+"""
+nombre = input("Nombre: ")
+if nombre == "admin" or nombre == "root" or nombre == "":
+    print (f"el {nombre} no es valido, prueba que no sean admin, root o vacío")
+else:
+    print(f"el Nombre {nombre} es  valido")
+"""
