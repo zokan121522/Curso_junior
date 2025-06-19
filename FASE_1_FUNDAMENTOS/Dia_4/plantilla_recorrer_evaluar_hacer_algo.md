@@ -1,8 +1,8 @@
 # 🧠 PLANTILLA UNIVERSAL – Recorrer, evaluar y hacer algo
-
-🎯 **¿QUÉ QUIERO HACER?**  
+```
+🎯 ¿QUÉ QUIERO HACER?
 Recorrer una lista y aplicar una acción **solo si** se cumple una condición.
-
+```
 ---
 
 ## 🧩 ELEMENTOS CLAVE
@@ -30,11 +30,11 @@ Recorrer una lista y aplicar una acción **solo si** se cumple una condición.
 ---
 
 ## 🔤 PSEUDOCÓDIGO
-
+```
 - “Por cada elemento en la lista…”
 - “Si cumple la condición…”
 - “Entonces hago algo con él”
-
+```
 ---
 
 ## 🧾 PLANTILLA DE CÓDIGO
@@ -49,9 +49,9 @@ for item in datos:
 
 print(resultado)
 ```
----
 
-🧪 EJEMPLOS DE APLICACIÓN
+
+## 🧪 EJEMPLOS DE APLICACIÓN
 
 ### ✅ 1. Contar
 ```python
@@ -82,5 +82,6 @@ print("Palabras largas:", largas)
 ```
 
 ---
-
+```
 🧠 RECUERDA: Esta estructura se adapta a mil usos: contar, filtrar, transformar, verificar, etc.
+```
