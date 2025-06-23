@@ -50,13 +50,7 @@ Sintaxis: :rocket:
 ```
 
 **Resultado:**  🚀 🔥 ✅ (emojins)
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
 ## 🧱 CÓDIGO
 
 | Tipo              | Sintaxis Markdown                  | Resultado                   |
@@ -99,10 +93,10 @@ Sintaxis: :rocket:
 ## 📊 TABLAS / CUADROS
 ```
 Tabla básica:(sin el punto)
-.| Campo     | Valor      |
-.|-----------|------------|
-.| Nombre    |            |
-.| Edad      |            |
+| Campo     | Valor      |
+|-----------|------------|
+| Nombre    |            |
+| Edad      |            |
 ```
 
 | Campo     | Valor      |
@@ -116,7 +110,7 @@ Caja vacía tipo ficha:
 ---
 
 ## 🎨 ESTILO VISUAL (usando CSS)
-```
+
 | Personalización     | CSS sugerido                   |
 |---------------------|---------------------------------|
 | Tamaño de letra     | font-size: 12px;               |
@@ -124,7 +118,7 @@ Caja vacía tipo ficha:
 | Color de texto      | color: #111;                   |
 | Código resaltado    | estilo para pre y code         |
 | Columnas            | usar tablas                    |
-```
+
 ---
 
 ## ✅ EXPORTAR A PDF (recomendaciones)
