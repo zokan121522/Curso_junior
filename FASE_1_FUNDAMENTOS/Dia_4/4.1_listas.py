@@ -1,18 +1,13 @@
 # 🔢 5 EJERCICIOS NUEVOS DE HOY (de menos a más)
-# 1. Crear una lista con 3 frutas y mostrarlas una por una
+## 1. Crear una lista con 3 frutas y mostrarlas una por una
 """
 lista = ["manzana","sandia","pera"]
 
 for fruta in lista:
     print("Eres una ", fruta)
 """
-# consola
-"""
-Eres una  manzana
-Eres una  sandia
-Eres una  pera
-"""
-# 2. Pedir 5 números al usuario y guardarlos en una lista
+
+## 2. Pedir 5 números al usuario y guardarlos en una lista
 """
 🎯 1. OBJETIVO
 Pedir 5 números por consola y guardarlos en una lista.
@@ -45,21 +40,21 @@ for i in range(5):
     lista.append(n)
 """
 
-# 3. Calcular el promedio de una lista de números
+## 3. Calcular el promedio de una lista de números
 """
 numeros = [3,4,5]
 promedio = sum(numeros)/len(numeros)
 print(f"el promedio de {numeros} es", promedio)
 """
 
-# 4. Mostrar los elementos de una lista en orden inverso
+## 4. Mostrar los elementos de una lista en orden inverso
 """
 mochila = ["brujula","rejol","cartera"]
 for n in reversed (mochila):
     print(n)
 """
 
-# 5. Dada una lista de edades, contar cuántos son mayores de edad (>=18)
+## 5. Dada una lista de edades, contar cuántos son mayores de edad (>=18)
 """
 edades = [15, 22, 17, 19, 30]     # Lista con varias edades
 contador = 0                      # Inicializa el contador en 0
@@ -75,7 +70,7 @@ print("Mayores de edad:", contador)  # Muestra cuántos son mayores de edad
 
 # 🔄 REPASO GLOBAL (Funciones + Condicionales + Listas + Bucle)
 
-#  1. funcion crear\_lista() que pida 3 elementos por input y devuelva lista
+##  1. funcion crear\_lista() que pida 3 elementos por input y devuelva lista
 """
 def crear_lista():                         
     lista = []                             
@@ -85,14 +80,14 @@ def crear_lista():
     return lista    
 """                       
 
-#  2. funcion es par(n): devuelve True si n es par, usando return
+## 2. funcion es par(n): devuelve True si n es par, usando return
 """
 def es_par(n):                             
     return n % 2 == 0                     
 """
 
 
-#  3. funcion mayores(lista): recibe lista de edades y devuelve solo los >=18
+##  3. funcion mayores(lista): recibe lista de edades y devuelve solo los >=18
 
 """
 def mayores(lista):                        
@@ -104,7 +99,7 @@ def mayores(lista):
 """              
 
 
-#  4. funcion contar\_aprobados(lista): cuenta notas >= 5
+## 4. funcion contar\_aprobados(lista): cuenta notas >= 5
 """
 
 
@@ -118,16 +113,9 @@ def contador(lista):
 print(contador([4,8,2]))
 """
 
-#  5. funcion resumen(nombre,edad,lista\_compras): muestraperfil personalizado cn resumen d compra
-"""
-def resumen(nombre, edad, lista_compras):          
-    print(f"👤 Perfil: {nombre}, {edad} años")       
-    print("🛒 Tu lista de compras:")                 
-    for item in lista_compras:                      
-        print("-", item)                           
-"""
+## 5. funcion resumen(nombre,edad,lista\_compras): muestraperfil personalizado cn resumen d compra
 
-
+"""
 def resumen ():
     nombre = input ("Como te llamas? ")
     edad = input(f"Que edad tienes {nombre}? ") 
@@ -137,4 +125,5 @@ def resumen ():
     return resumen
 
 print(resumen())
+"""
 
