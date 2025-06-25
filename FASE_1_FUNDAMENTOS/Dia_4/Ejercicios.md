@@ -35,7 +35,8 @@ for fruta in lista:
 
 ## 2. Pedir 5 números al usuario y guardarlos en una lista
 
-```python lista = []
+```python 
+lista = []
 for i in range(5):
     n = int(input(f"Dime un numero {i + 1}: ")) # 
     # en lista añade (n)
@@ -116,14 +117,14 @@ print(contador([4,8,2]))
 ## 5. funcion resumen(nombre,edad,lista\_compras): muestraperfil personalizado cn resumen d compra
 
 ```python
-def resumen ():
-    nombre = input ("Como te llamas? ")
-    edad = input(f"Que edad tienes {nombre}? ") 
-    nota = input (f"Que nota has sacado {nombre} ")
-    
-    resumen = f"Hola {nombre}, tienes {edad} años, y has sacado un {nota}."
-    return resumen
+def resumen ():  # 🎯 Define una función sin parámetros
+    nombre = input("Como te llamas? ")  # 🧑 Pide el nombre al usuario
+    edad = input(f"Que edad tienes {nombre}? ")  # 🎂 Pide la edad, usando el nombre
+    nota = input(f"Que nota has sacado {nombre} ")  # 📄 Pide la nota, usando el nombre
 
-print(resumen())
+    resumen = f"Hola {nombre}, tienes {edad} años, y has sacado un {nota}."  # 🧾 Crea un resumen en texto
+    return resumen  # 🔁 Devuelve el resumen
+
+print(resumen())  # 🖨️ Llama a la función y muestra el mensaje
 ```
 
