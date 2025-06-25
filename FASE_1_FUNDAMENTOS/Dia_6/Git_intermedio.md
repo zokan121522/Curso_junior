@@ -23,9 +23,8 @@ main  ← línea principal (oficial)
 ├── experimento  ← una nueva idea, o funcionalidad en desarrollo
 ```
 
----
 
-## ✨ COMANDOS BÁSICOS DE RAMAS EN GIT
+## ✨ COMANDOS BÁSICOS EN GIT
 
 | Acción                               | Comando                                      |
 |--------------------------------------|----------------------------------------------|
@@ -46,8 +45,8 @@ main  ← línea principal (oficial)
 | Ver qué remoto tienes configurado    | `git remote -v`                              |
 | Descargar cambios del repositorio    | `git pull`                                   |
 | Ver resumen de cambios con ramas     | `git log --oneline --decorate --graph --all` |
+| Guarda archivos ya creados, no nuevos|  `git commit -am`                            |
 
----
 
 ## 🌐 SUBIR TU REPO A GITHUB
 
