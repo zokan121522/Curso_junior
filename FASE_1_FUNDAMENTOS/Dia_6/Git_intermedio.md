@@ -1,13 +1,13 @@
-
-# 🧠 DÍA 6 – GIT INTERMEDIO: RAMAS, MERGE Y CONFLICTOS
+# 🧠 DÍA 6 – GIT INTERMEDIO: RAMAS, MERGE, CONFLICTOS Y GITHUB
 
 ---
 
 ## 🎯 Objetivo del día
 
 - Entender qué es una **rama (branch)** en Git
-- Crear, cambiar y fusionar ramas (**gitbranch**, **checkout**, **merge**`)
+- Crear, cambiar y fusionar ramas (**git branch**, **checkout**, **merge**)
 - Resolver conflictos cuando dos ramas modifican lo mismo
+- Subir cambios al repositorio remoto de GitHubLS
 - Aplicar todo con práctica real sobre tu script **perfil.py**
 
 ---
@@ -27,15 +27,47 @@ main  ← línea principal (oficial)
 
 ## ✨ COMANDOS BÁSICOS DE RAMAS EN GIT
 
-| Acción                     | Comando                                  |
-|----------------------------|------------------------------------------|
-| Ver ramas existentes       | `git branch`                             |
-| Crear nueva rama           | `git branch experimento`                 |
-| Cambiar de rama            | `git checkout experimento`              |
-| Crear y cambiar a la vez   | `git checkout -b experimento`           |
-| Volver a **main**            | `git checkout main`                      |
-| Fusionar rama con main     | `git merge experimento`                  |
-| Borrar rama                | `git branch -d experimento`              |
+| Acción                               | Comando                                      |
+|--------------------------------------|----------------------------------------------|
+| Ver ramas existentes                 | `git branch`                                 |
+| Crear nueva rama                     | `git branch nombre-rama`                     |
+| Crear y cambiar a nueva rama         | `git checkout -b nombre-rama`                |
+| Cambiar de rama                      | `git checkout nombre-rama`                   |
+| Volver a la rama principal (main)    | `git checkout main`                          |
+| Fusionar rama con main               | `git merge nombre-rama`                      |
+| Borrar rama                          | `git branch -d nombre-rama`                  |
+| Ver en qué rama estás                | `git status`                                 |
+| Ver historial de commits             | `git log --oneline --graph --all`            |
+| Ver diferencias entre ramas          | `git diff rama1..rama2`                      |
+| Subir rama actual a GitHub           | `git push -u origin nombre-rama`             |
+| Subir cambios nuevos                 | `git push`                                   |
+| Clonar repositorio de GitHub         | `git clone URL-del-repo`                     |
+| Añadir archivo remoto (una vez)      | `git remote add origin URL-del-repo`         |
+| Ver qué remoto tienes configurado    | `git remote -v`                              |
+| Descargar cambios del repositorio    | `git pull`                                   |
+| Ver resumen de cambios con ramas     | `git log --oneline --decorate --graph --all` |
+
+---
+
+## 🌐 SUBIR TU REPO A GITHUB
+
+### 🔧 1. Conectar con GitHub
+
+Crea un repo vacío en GitHub con el mismo nombre del proyecto (ej: **mi_proyecto**), luego:
+
+```bash
+git remote add origin https://github.com/tuusuario/mi_proyecto.git
+git branch -M main
+git push -u origin main
+```
+
+### 💡 Subir cambios posteriores:
+
+```bash
+git add .
+git commit -m "Comentario"
+git push
+```
 
 ---
 
@@ -79,6 +111,14 @@ git merge experimento
 
 > **Analogía:** Dos personas editan el mismo párrafo de un documento.  
 > Git se queda bloqueado y **te pide decidir**.
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
 
 ### ⚠️ Ejemplo de conflicto
 
