@@ -1,0 +1,23 @@
+body{
+    background-color: grey;
+}
+
+h1{
+    color: darkblue;
+    text-align: center;
+}
+
+.info{
+    font-family: Arial;
+    color: red;
+}
+
+.caja-roja{
+    border: 2px solid red;
+    text-align: center;
+}
+
+* {
+    margin: 10px;
+    padding: 10px;
+}
