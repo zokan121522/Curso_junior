@@ -1,0 +1,37 @@
+/* Estilos generales */
+* {
+  margin: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+/* Título principal */
+h1 {
+  color: darkblue;
+  text-align: center;
+}
+
+/* Subtítulo con otra fuente */
+.subtitulo {
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  color: #333;
+}
+
+/* Párrafo informativo */
+.info {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Caja con borde rojo */
+.caja-roja {
+  border: 2px solid red;
+  padding: 10px;
+  background-color: #fff;
+}
