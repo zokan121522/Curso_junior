@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Cuentanos tu opinión</h1>
+    <form action="scripts/procesar.py" method="post">
+        <label>Nombre </label><br>
+        <textarea name="name"></textarea><br><br>
+        <label>Edad </label> <br>
+        <input type="number" name="age"><br><br>
+        <label> ¿Como valoras nuestro servicio? (1 a 5) </label><br>
+        <input type="number" name="valoracion"><br><br>
+        <label>Comentarios:</label><br>
+        <textarea name="comentarios"></textarea><br><br>
+        <button type="submit">Enviar</button>
+    </form>  
+</body>
+
+</html>
