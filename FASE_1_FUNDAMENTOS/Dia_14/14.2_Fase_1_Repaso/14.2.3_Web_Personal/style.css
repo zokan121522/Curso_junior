@@ -1,0 +1,15 @@
+.nombre {
+    color: red;
+    background-color: yellow;
+    border: solid white;
+    padding: 10px;
+    width: 200px;
+    height: 50px ;
+    text-align: center;
+}
+
+.img{
+    width: 10px;
+    text-align: center;
+}
+
