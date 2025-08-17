@@ -1,0 +1,21 @@
+# ✅ PASO A PASO — Backend + Frontend conectados (Clase 25)
+
+| Paso | Acción                                                   | Comando / Notas                                                                                                                                         |
+|------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | Crear estructura de carpetas                              | `mkdir entorno25 && cd entorno25 && mkdir backend && cd backend`                                                                                       |
+| 2    | Crear entorno virtual Python                              | `python3 -m venv env`                                                                                                                                   |
+| 3    | Activar entorno virtual                                   | `source env/bin/activate`                                                                                                                               |
+| 4    | Crear `requirements.txt` con VSCode                       | `code requirements.txt` → luego insertar el snippet global de dependencias (`fastapi`, `sqlmodel`, `uvicorn`, etc.)                                   |
+| 5    | Instalar dependencias del backend                         | `pip install -r requirements.txt`                                                                                                                       |
+| 6    | Crear y abrir `main.py`                                   | `code main.py` → insertar el snippet global de **FastAPI + SQLModel CRUD (Tareas)**                                                                    |
+| 7    | Insertar CORS para conectar frontend                      | Insertar el snippet `CORS Middleware` **después de `app = FastAPI()`**                                                                                 |
+| 8    | Ejecutar el servidor de la API (FastAPI)                  | `uvicorn main:app --reload`                                                                                                                             |
+| 9    | Copiar script de React boilerplate (`newreact.sh`)       | `cp newreact.sh entorno25/`                                                                                                                             |
+| 10   | Volver a la raíz del proyecto                             | `cd ..` (desde `/backend` a `/entorno25`)                                                                                                               |
+| 11   | Generar proyecto React                                     | `./newreact.sh frontend`                                                                                                                                |
+| 12   | Iniciar el frontend React                                 | `cd frontend` → `npm run dev`                                                                                                                           |
+| 13   | Abrir la web en navegador                                 | Visita 👉 `http://localhost:5173` (o el puerto que indique la consola)                                                                                   |
+| 14   | Ir a `frontend/src/App.jsx`                               | Reemplaza el contenido con el snippet `react.fetch.lista.generica`                                                                                      |
+| 15   | Cambiar la URL en `fetch()`                               | Usa `http://localhost:8000/tareas` (la URL del backend FastAPI)                                                                                        |
+| 16   | Probar conexión con un POST manual                        | Ejecuta desde terminal:<br>`curl -X POST http://localhost:8000/tareas \`<br>`-H "Content-Type: application/json" \`<br>`-d '{"titulo": "Aprender FastAPI", "done": false}'` |
+| 17   | Recargar el navegador                                     | Visita el frontend y pulsa “🔁 Refrescar” → Verás la tarea **“Aprender FastAPI”** mostrada con fondo amarillo (pendiente)                             |
