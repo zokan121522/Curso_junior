@@ -15,13 +15,12 @@
 
 ## 🧠 ¿QUÉ VAS A APRENDER?
 
-### Módulo	Concepto	Tecnología/Función clave
-```bash
-1. Registro de usuario	Pydantic + SQLModel
-2. Hashing de contraseña	bcrypt
-3. Login y generación de JWT	jwt.encode con pyjwt
-4. Verificación de usuario logueado	Depends(get_current_user)
-```
+| Módulo | Concepto                       | Tecnología / Función clave          |
+|--------|--------------------------------|-------------------------------------|
+| 1      | Registro de usuario            | Pydantic + SQLModel                 |
+| 2      | Hashing de contraseña          | bcrypt                              |
+| 3      | Login y generación de JWT      | `jwt.encode` con PyJWT              |
+| 4      | Verificación de usuario logueado | `Depends(get_current_user)`        |
 ---
 
 ## 🧩 REQUISITOS PREVIOS
@@ -35,25 +34,35 @@
 
 #### 📁 ESTRUCTURA BÁSICA DE ARCHIVOS
 ```bash
-📂 tu_proyecto/
-├── main.py
-├── models.py
-├── database.py
-├── create_db.py   ← se ejecuta una sola vez para crear las tablas
+📂 app/
+├── main.py          👈 Punto de entrada principal (crea app e incluye rutas)
+├── models.py        👤 Define los modelos de la base de datos (User, etc.)
+├── database.py      💾 Configura la conexión con SQLite usando SQLModel
+├── auth.py          🔐 Contiene los endpoints de autenticación: /register y /login
+├── auth_utils.py    🔑 Valida tokens JWT para proteger rutas con Depends()
+├── config.py        🔧 Configuración global (SECRET_KEY, etc.)
+├── create_db.py     🛠️ Script para crear las tablas iniciales
+├── requirements.txt 📋 Lista de dependencias del proyecto
 ```
 
 ---
 
 #### 🧩 CONTENIDO DE CADA ARCHIVO
 
+**Comando terminal:**  
+>📍 snippet ⇒ : mod-auth-main-app
 
 ##### ✅ main.py
 ```py
+# 📍 snippet ⇒ mod-auth-main-app
+# FastAPI app principal con rutas /, /register, /login y /perfil protegida con JWT 📂 ├── main.py
 from fastapi import FastAPI
-from models import User
-from database import engine
+from auth import router as auth_router          # 👈 sin punto si estás en misma carpeta
+from auth_utils import get_current_user         # 👈 sin punto también
 
 app = FastAPI()
+
+app.include_router(auth_router)                 # 👈 Esto activa /register y /login
 
 @app.get("/")
 def inicio():
@@ -63,6 +72,9 @@ def inicio():
 ---
 
 ##### ✅ models.py
+
+>📍 snippet ⇒ mod-user-model
+
 ```py
 from sqlmodel import SQLModel, Field
 from typing import Optional
@@ -76,6 +88,9 @@ class User(SQLModel, table=True):
 ---
 
 ##### ✅ database.py
+
+>📍 snippet ⇒ sqlite-engine-database
+
 ```py
 from sqlmodel import create_engine
 
@@ -85,6 +100,7 @@ engine = create_engine("sqlite:///db.db", echo=True)
 ---
 
 ##### ✅ create_db.py (solo se ejecuta una vez)
+>📍 snipet ⇒ init-db-sqlmodel-createdb
 ```py
 from sqlmodel import SQLModel
 from models import User
@@ -130,6 +146,9 @@ pip install pyjwt bcrypt
 ---
 
 ### 2. MODELO DE USUARIO (models.py)
+
+>🔧 Snippet: mod-user-model
+
 ```py
 from sqlmodel import SQLModel, Field
 from typing import Optional
@@ -144,7 +163,10 @@ class User(SQLModel, table=True):
 
 ### 3. REGISTRO DE USUARIO (auth.py)
 
+> 📍 Snippet⇒  mod-auth-register-json
+
 #### 3.1 🔐 Hashear la contraseña
+
 ```py
 import bcrypt
 
@@ -175,35 +197,17 @@ def register_user(username: str, password: str):
 
 ### 4. LOGIN Y GENERACIÓN DE TOKEN (auth.py)
 
-#### 4.1 🔑 Validar credenciales
-```py
-from fastapi import HTTPException
-
-with Session(engine) as session:
-    user = session.exec(
-        User.select().where(User.username == username)
-    ).first()
-
-if not user or not bcrypt.checkpw(password.encode("utf-8"), user.hashed_password.encode("utf-8")):
-    raise HTTPException(status_code=401, detail="Credenciales inválidas")
-```
-
-#### 4.2 🪪 Generar JWT
-```py
-import jwt
-from datetime import datetime, timedelta
-
-SECRET_KEY = "clave-secreta"  # ⚠️ Cambiar en producción
-
-payload = {
-    "sub": user.username,
-    "exp": datetime.utcnow() + timedelta(minutes=60)
-}
-token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
-return {"access_token": token}
-```
-
 #### 🔁 Todo junto en `/login`
+##### Esta ruta realiza 3 pasos clave:
+1. **Busca al usuario** en la base de datos usando el nombre enviado.  
+2. **Verifica la contraseña** comparando el texto plano con el hash usando bcrypt.  
+3. **Genera un token JWT** con duración de 60 minutos y lo devuelve.
+
+> ✅ Si todo es correcto, devuelve `{ "access_token": "..." }`.
+> 🚫 Si algo falla, devuelve error `401 Credenciales inválidas`.
+
+> 🔧 Snippet: mod-auth-login
+
 ```py
 @router.post("/login")
 def login(username: str, password: str):
@@ -226,24 +230,55 @@ def login(username: str, password: str):
 ---
 
 ### 5. PROTECCIÓN DE RUTAS (auth_utils.py)
+> 📍 Snippet: mod-auth-utils
+> 
+    1.	📩 Recibe el token JWT desde la cabecera Authorization:
+	2.	🔓 Descifra el token con SECRET_KEY para ver qué usuario lo firmó.
+	3.	✅ Si es válido, devuelve el nombre del usuario (payload[“sub”]).
+	4.	⏳ Si el token caducó, lanza error 401 Token expirado.
+	5.	❌ Si es inválido o no está bien formado, lanza 401 Token inválido.
+
+⸻
+
 ```py
+# 📍 Snippet: mod-auth-utils
+# 🔐 Utilidad para validar tokens JWT y extraer usuario actual 📂 ├──auth_utils.py
+from config import SECRET_KEY
 from fastapi import Depends, HTTPException, Header
 from jwt import decode, exceptions
 
+# 🧠 Extrae y valida el token JWT desde la cabecera Authorization
 def get_current_user(authorization: str = Header(...)):
     try:
+        # 🔍 Separa el token del prefijo "Bearer"
         token = authorization.split(" ")[1]
+
+        # 🔓 Decodifica el token con la clave secreta
         payload = decode(token, SECRET_KEY, algorithms=["HS256"])
+
+        # ✅ Devuelve el nombre de usuario si todo va bien
         return payload["sub"]
+
+    # ⏰ Si el token está caducado, lanza error 401
     except exceptions.ExpiredSignatureError:
         raise HTTPException(status_code=401, detail="Token expirado")
+
+    # 🚫 Si cualquier otro error ocurre, lanza error 401
     except:
         raise HTTPException(status_code=401, detail="Token inválido")
+    
 ```
 
 ---
 
 ### 6. USO EN RUTAS PROTEGIDAS (main.py)
+
+> 🔧 Snippet: mod-auth-protected
+> 
+1. 📦 Este archivo es el centro de control de tu API
+2. 🔓 Activa las rutas públicas (/login, /register)
+3. 🔒 Bloquea las rutas privadas (/perfil) si no hay token JWT válido ✅
+
 ```py
 from fastapi import FastAPI, Depends
 from .auth import router as auth_router
@@ -261,10 +296,129 @@ def perfil(usuario: str = Depends(get_current_user)):
 
 ## 🧪 TESTS BÁSICOS (opcional)
 
-### Puedes probar en Swagger o con curl/postman:
-	•	POST /register → { "username": "pepe", "password": "123" }
-	•	POST /login → retorna { access_token }
-	•	GET /perfil con header: Authorization: Bearer tu_token
+
+# 🧪 TEST COMPLETO DE REGISTRO, LOGIN Y PERFIL EN FASTAPI
+
+---
+
+### 🔎 Paso 1: Ver qué rutas existen en la API
+
+**Enunciado:**  
+Consultar las rutas disponibles que expone FastAPI (usando `openapi.json`)
+
+**Comando terminal:**  
+>📍 aText ⇒ :lscurl
+```bash
+curl -s http://localhost:8000/openapi.json | jq '.paths | keys[]'
+```
+
+**Respuesta esperada:**
+```
+"/"
+"/login"
+"/perfil"
+"/register"
+```
+
+**Por qué:**  
+Así confirmamos que los endpoints `/login`, `/register` y `/perfil` están correctamente activos en nuestra API.
+
+---
+
+### 🔎 Paso 2: Ver qué datos espera el endpoint `/register` y `/login`
+
+**Enunciado:**  
+Consultar la estructura (schema) del cuerpo (`request body`) que esperan los endpoints.
+
+**Comando terminal:**  
+>📍 aText ⇒ :curlschema
+```bash
+curl -s http://localhost:8000/openapi.json | jq '.components.schemas.UserRequest'
+```
+
+**Respuesta esperada:**
+```json
+{
+  "properties": {
+    "username": { "type": "string", "title": "Username" },
+    "password": { "type": "string", "title": "Password" }
+  },
+  "required": ["username", "password"],
+  "title": "UserRequest"
+}
+```
+
+**Por qué:**  
+Así sabes que debes enviar un JSON con `"username"` y `"password"` en el cuerpo de la petición para que funcione correctamente.
+
+---
+
+### 🔎 Paso 3: Registrar un usuario nuevo
+
+**Enunciado:**  
+Enviar los datos del usuario a `/register` para guardarlo en la base de datos.
+
+**Comando terminal:**  
+>📍 aText ⇒ :curlpost
+```bash
+curl -X POST http://localhost:8000/register   
+-H "Content-Type: application/json"   
+-d '{"username": "Jaime", "password": "1111"}'
+```
+
+**Respuesta esperada:**
+```json
+{"message":"✅ Usuario registrado correctamente"}
+```
+
+**Por qué:**  
+Significa que el usuario `"Jaime"` ya está registrado correctamente en la base de datos y ahora podrá iniciar sesión.
+
+---
+
+### 🔎 Paso 4: Iniciar sesión para obtener el token
+
+**Enunciado:**  
+Enviar el usuario y contraseña a `/login` para recibir un token JWT válido.
+
+**Comando terminal:**  
+>📍 aText ⇒ :curlpost
+```bash
+curl -s -X POST http://localhost:8000/login
+-H "Content-Type: application/json"   
+-d '{"username": "Jaime", "password": "1111"}'
+```
+
+**Respuesta esperada (ejemplo):**
+```json
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."}
+```
+
+**Por qué:**  
+Este token sirve como “pase” para acceder a rutas protegidas como `/perfil`. Es como una entrada firmada.
+
+---
+
+### 🔎 Paso 5: Usar el token para acceder al perfil protegido
+
+**Enunciado:**  
+Enviar el token como cabecera `Authorization` para entrar al perfil del usuario.
+
+**Comando terminal:**  
+>📍 aText ⇒ :curltoken
+```bash
+curl -s -X GET http://localhost:8000/perfil
+-H "Authorization: Bearer TU_TOKEN_AQUI"
+```
+
+**Respuesta esperada:**
+```json
+{"mensaje":"👤 Bienvenido, Jaime"}
+```
+
+**Por qué:**  
+Significa que el token es válido, que no ha expirado, y que se ha autenticado correctamente al usuario `"Jaime"`.
+
 
 ---
 
@@ -273,16 +427,6 @@ def perfil(usuario: str = Depends(get_current_user)):
 	•	¿Entiendes cómo se genera un token JWT y cómo se protege una ruta?
 	•	¿Puedes añadir Depends(get_current_user) a cualquier endpoint?
 	•	¿Has probado con token válido e inválido?
-
----
-
-## 📄 ARCHIVOS GENERADOS
-```bash
-/models.py           → Modelo User
-/auth.py             → Registro + login + token
-/auth_utils.py       → Validación del JWT
-/main.py             → App + rutas + auth integrada
-```
 
 ---
 
