@@ -1,16 +1,20 @@
 
-#  ⏯ En proceso
+# Tabla
 ---
 
-1.  Repasar tabla de conceptos 
-2. Añadir en el snipet la descripción arriba comentado de lo que hace junto con el shortcut que ha tenido
+| 🔝 Estado            | 🔛 Progreso                | 🔜 Descripcion                     |
+| -------------------- | -------------------------- | ---------------------------------- |
+| ➕Trabajo Profundo    | 1. Empezar clase dia 27    | Terminar de matizar ultimo snippet |
+| ➖Trabajo Superficial | Repasar tabla de conceptos |                                    |
 
+#  ⏯ En proceso
+---
+	1. 
 
 
 # ➕Trabajo Profundo
 ---
-1. Empezar clase dia 27
-	1. App de tareas – parte frontend ⇒  Props, fetch, estado ⇒  Formulario para añadir tareas, render dinámico
+	1. 
 
 # ➖Trabajo Superficial
 ---

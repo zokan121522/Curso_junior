@@ -273,19 +273,16 @@ def get_current_user(authorization: str = Header(...)):
 
 ### 6. USO EN RUTAS PROTEGIDAS (main.py)
 
-> 🔧 Snippet: mod-auth-protected
+> 📍 Snippet: mod-auth-protected
 > 
 1. 📦 Este archivo es el centro de control de tu API
 2. 🔓 Activa las rutas públicas (/login, /register)
 3. 🔒 Bloquea las rutas privadas (/perfil) si no hay token JWT válido ✅
 
 ```py
-from fastapi import FastAPI, Depends
-from .auth import router as auth_router
-from .auth_utils import get_current_user
 
-app = FastAPI()
-app.include_router(auth_router)
+# Ruta protegida con get_current_user y JWT
+from fastapi import Depends
 
 @app.get("/perfil")
 def perfil(usuario: str = Depends(get_current_user)):

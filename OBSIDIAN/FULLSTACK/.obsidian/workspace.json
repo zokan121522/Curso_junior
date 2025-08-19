@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ob_ Important.md",
-                "mode": "preview",
+                "file": "Notas/ob_TMUX.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ob_ Important"
+              "title": "ob_TMUX"
             }
           }
         ],
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ob_ Important.md",
+                "file": "Notas/ob_TMUX.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ob_ Important"
+              "title": "Backlinks for ob_TMUX"
             }
           },
           {
@@ -156,12 +156,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ob_ Important.md",
+                "file": "Notas/ob_TMUX.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ob_ Important"
+              "title": "Outgoing links from ob_TMUX"
             }
           },
           {
@@ -185,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ob_ Important.md",
+                "file": "Notas/ob_TMUX.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ob_ Important"
+              "title": "Outline of ob_TMUX"
             }
           }
         ],
@@ -214,9 +214,9 @@
   },
   "active": "8fb25bfabc43844e",
   "lastOpenFiles": [
-    "Notas/ob_GitHub.md",
-    "Notas/ob_TablaConceptos.md",
     "ob_ Important.md",
+    "Notas/ob_TablaConceptos.md",
+    "Notas/ob_GitHub.md",
     "Notas/ob_TMUX.md",
     "Notas/ob_TablaComandos.md",
     "Notas/ob_SnipetsVscode.md",
