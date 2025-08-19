@@ -1,3 +1,4 @@
+
 # 📂 main.py 🚀 API base FastAPI + SQLModel conectada a SQLite, lista para endpoints CRUD
 # 🛠 IMPORTS — Librerías necesarias
 from fastapi import FastAPI, HTTPException
@@ -40,7 +41,13 @@ def obtener_tarea(id: int):
         if not t:
             raise HTTPException(status_code=404, detail="Tarea no encontrada")
         return t
-    
+
+# 📜 LISTAR TAREAS — GET /tareas
+@app.get("/tareas")
+def listar_tareas():
+    with Session(engine) as session:
+        return session.exec(select(Tarea)).all()
+
 # ➕ CREAR TAREA — POST /tareas
 @app.post("/tareas", status_code=201)
 def crear_tarea(tarea: TareaCreate):
@@ -50,13 +57,7 @@ def crear_tarea(tarea: TareaCreate):
         session.commit()
         session.refresh(nueva)
         return nueva
-
-# 📜 LISTAR TAREAS — GET /tareas
-@app.get("/tareas")
-def listar_tareas():
-    with Session(engine) as session:
-        return session.exec(select(Tarea)).all()
-
+    
 # 🗑 ELIMINAR TAREA — DELETE /tareas/{id}
 @app.delete("/tareas/{id}", status_code=204)
 def borrar_tarea(id: int):
@@ -81,4 +82,3 @@ def editar_tarea(id: int, tarea: TareaCreate):
         session.commit()
         session.refresh(existente)
         return existente
-    

@@ -2,10 +2,10 @@
 # Tabla
 ---
 
-| 🔝 Estado            | 🔛 Progreso                | 🔜 Descripcion                     |
-| -------------------- | -------------------------- | ---------------------------------- |
-| ➕Trabajo Profundo    | 1. Empezar clase dia 27    | Terminar de matizar ultimo snippet |
-| ➖Trabajo Superficial | Repasar tabla de conceptos |                                    |
+| 🔝 Estado            | 🔛 Progreso                     | 🔜 Descripcion  |
+| -------------------- | ------------------------------- | --------------- |
+| ➕Trabajo Profundo    | 1. hacer proyecto27 con snipets | voy por app.jsx |
+| ➖Trabajo Superficial | Repasar tabla de conceptos      |                 |
 
 #  ⏯ En proceso
 ---

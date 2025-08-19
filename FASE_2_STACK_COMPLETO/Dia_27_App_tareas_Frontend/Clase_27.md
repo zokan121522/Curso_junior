@@ -13,11 +13,24 @@ En esta clase crearemos el cliente web de la API que ya tienes lista. Usaremos R
 ---
 
 ## ️ REQUISITOS PREVIOS
-	•	Tener corriendo el backend (main.py)
-	•	API funcionando en http://localhost:8000
-	•	Proyecto React creado (con Vite y Tailwind si quieres estilo rápido)
+```
+  1.	Tener corriendo el backend (main.py) 
+  2.  📌 ENDPOINTS ⇒ obtener, crear, listar , eliminar , editar
+  3.  Probar api con curl (TABLA)
+  3.	API funcionando en http://localhost:8000
+  4. 	Proyecto React creado (con Vite y Tailwind si quieres estilo rápido)
+``` 
 > Ver clase dia_25
+# 🧪 Pruebas de API FastAPI con curl
 
+| Método | Endpoint             | Código curl                                                                                           | Respuesta esperada                           |
+|--------|----------------------|--------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| POST   | /tareas              | curl -X POST http://localhost:8000/tareas \ <br> -H "Content-Type: application/json" \ <br> -d '{"titulo": "Aprender FastAPI", "done": false}' | { "id": 1, "titulo": "Aprender FastAPI", "done": false } |
+| GET    | /tareas              | curl http://localhost:8000/tareas                                                                       | [ { "id": 1, "titulo": "Aprender FastAPI", "done": false } ] |
+| GET    | /tareas/1            | curl http://localhost:8000/tareas/1                                                                     | { "id": 1, "titulo": "Aprender FastAPI", "done": false } |
+| PUT    | /tareas/1            | curl -X PUT http://localhost:8000/tareas/1 \ <br> -H "Content-Type: application/json" \ <br> -d '{"titulo": "FastAPI actualizado", "done": true}' | { "id": 1, "titulo": "FastAPI actualizado", "done": true } |
+| DELETE | /tareas/1            | curl -X DELETE http://localhost:8000/tareas/1                                                           | (No content) → status 204                    |
+| GET    | /tareas/1 (borrado)  | curl http://localhost:8000/tareas/1                                                                     | { "detail": "Tarea no encontrada" }          |
 ---
 
 ## 1. 🏗️ ESTRUCTURA BÁSICA DEL PROYECTO FRONTEND
@@ -49,6 +62,21 @@ content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"]
 ---
 
 ## 2. 📄 CREAR COMPONENTE <App /> Y ESTRUCTURA BÁSICA
+
+#### MONTAR App.jsx SOLO CON TUS SNIPPETS
+
+| 🧩 BLOQUE                         | ✅ SNIPPET A USAR             | 📂 Ruta dentro del proyecto              | ✅ Completado |
+|----------------------------------|-------------------------------|------------------------------------------|---------------|
+| `import { useEffect, useState }` | `react-base`                  | 📂 ├── src/App.jsx                        | - [x]         |
+| `const [tareas, setTareas]`      | `estado-tareas-react`         | 📂 ├── src/App.jsx                        | - [x]         |
+| `const [titulo, setTitulo]`      | `estado-input`                | 📂 ├── src/App.jsx                        | - [x]         |
+| `useEffect(() => loadTareas())`  | `useEffect-load`              | 📂 ├── src/App.jsx                        | - [ ]         |
+| Función `loadTareas()`           | `fetch-loadTareas`            | 📂 ├── src/funciones/loadTareas.js        | - [ ]         |
+| Función `crearTarea` (POST)      | a) `crear-tarea`              | 📂 ├── src/funciones/crearTarea.js        | - [ ]         |
+|                                  | b) `crear-Tarea-POST-react`   | 📂 ├── src/App.jsx                        | - [ ]         |
+| Formulario                       | `form-tarea`                  | 📂 ├── src/componentes/FormTarea.jsx      | - [ ]         |
+| Lista tareas `.map()`            | `map-tareas-ui`               | 📂 ├── src/componentes/ListaTareas.jsx    | - [ ]         |
+---
 
 ```jsx
 // src/App.jsx
