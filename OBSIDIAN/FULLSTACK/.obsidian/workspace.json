@@ -56,7 +56,7 @@
               "type": "markdown",
               "state": {
                 "file": "ob_ Important.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -121,7 +121,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 270.5
   },
   "right": {
     "id": "5d0b5c5ea7d72f6c",
@@ -214,11 +214,11 @@
   },
   "active": "8fb25bfabc43844e",
   "lastOpenFiles": [
-    "Notas/ob_TMUX.md",
-    "Notas/ob_GitHub.md",
-    "ob_ Important.md",
     "Notas/ob_TablaConceptos.md",
+    "ob_ Important.md",
     "Notas/ob_TablaComandos.md",
+    "Notas/ob_GitHub.md",
+    "Notas/ob_TMUX.md",
     "Notas/ob_SnipetsVscode.md",
     "Notas/ob_Rutas.md",
     "FASE_2/📚Clase24 Testing con Postman y Pytest.md",

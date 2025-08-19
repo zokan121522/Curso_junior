@@ -67,11 +67,11 @@ content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"]
 
 | 🧩 BLOQUE                         | ✅ SNIPPET A USAR             | 📂 Ruta dentro del proyecto              | ✅ Completado |
 |----------------------------------|-------------------------------|------------------------------------------|---------------|
-| `import { useEffect, useState }` | `react-base`                  | 📂 ├── src/App.jsx                        | - [x]         |
-| `const [tareas, setTareas]`      | `estado-tareas-react`         | 📂 ├── src/App.jsx                        | - [x]         |
-| `const [titulo, setTitulo]`      | `estado-input`                | 📂 ├── src/App.jsx                        | - [x]         |
-| `useEffect(() => loadTareas())`  | `useEffect-load`              | 📂 ├── src/App.jsx                        | - [ ]         |
-| Función `loadTareas()`           | `fetch-loadTareas`            | 📂 ├── src/funciones/loadTareas.js        | - [ ]         |
+| `import { useEffect, useState }` | `React-base-app`                  | 📂 ├── src/App.jsx                        | - [x]         |
+| `const [tareas, setTareas]`      | `React-estado-tareas`         | 📂 ├── src/App.jsx                        | - [x]         |
+| `const [titulo, setTitulo]`      | `React-estado-input`                | 📂 ├── src/App.jsx                        | - [x]         |
+| `useEffect(() => loadTareas())`  | `React-useEffect-load`              | 📂 ├── src/App.jsx                        | - [ ]         |
+| Función `loadTareas()`           | `React-fetch-loadTareas`            | 📂 ├── src/funciones/loadTareas.js        | - [ ]         |
 | Función `crearTarea` (POST)      | a) `crear-tarea`              | 📂 ├── src/funciones/crearTarea.js        | - [ ]         |
 |                                  | b) `crear-Tarea-POST-react`   | 📂 ├── src/App.jsx                        | - [ ]         |
 | Formulario                       | `form-tarea`                  | 📂 ├── src/componentes/FormTarea.jsx      | - [ ]         |
