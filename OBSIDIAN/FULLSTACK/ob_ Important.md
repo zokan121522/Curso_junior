@@ -8,11 +8,11 @@
 |En progreso|🔄|
 |Completada |✅|
 
-| ➕Trabajo Profundo                                                                            | 🔜 Descripcion                                                                                 | 🔝 Estado   |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ----------- |
-| 1. Proyecto 272 falta en app.jsx el problema de tareas o tarea mirar ultimas iteraciones GPT | 🔄 En progreso                                                                                 |             |
-| 2. Repasar React                                                                             | (hacer recetario con tarjetas)props-> <br>(ingredientes, imagen, pasos, consejos o tips al fin | ⏳ Pendiente |
-|                                                                                              |                                                                                                |             |
+| ➕Trabajo Profundo                               | 🔜 Descripcion                                                                                 | 🔝 Estado   |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------- | ----------- |
+| 1.                                              | 🔄 En progreso                                                                                 |             |
+| 2. Repasar React                                | (hacer recetario con tarjetas)props-> <br>(ingredientes, imagen, pasos, consejos o tips al fin | ⏳ Pendiente |
+| 3. Montar un servidor desde github para habitos | organizar habitos desde el servidor local , mucho mas visual que obsidian                      |             |
 
 | ➖Trabajo Superficial          | 🔜 Descripcion            | 🔝 Estado      |
 | ----------------------------- | ------------------------- | -------------- |

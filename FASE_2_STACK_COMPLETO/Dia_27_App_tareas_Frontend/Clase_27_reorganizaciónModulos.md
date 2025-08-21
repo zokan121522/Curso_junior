@@ -120,24 +120,30 @@ export default function Formulario({ setTareas }) {
 - `React-lista-tareas-avanzada`
 
 ```jsx
-// Componente genérico con botón para eliminar items de una lista
-// 📍snippet ⇒ React-Lista-eliminar-borrar-ConBotonEliminar
 export default function ListaTareas({ tareas, setTareas }) {
-  const borrar = async (id) => {
-    const res = await fetch(`http://localhost:8000/items/id`, {
+  const borrarTarea = async (id) => {
+    const res = await fetch(`http://localhost:8000/tareas/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {
-      setTareas((prev) => prev.filter((item) => item.id !== id));
+      setTareas((prev) => prev.filter((t) => t.id !== id));
     }
   };
 
   return (
-    <ul>
-      {tareas.map((tarea) => (
-        <li key={tarea.id}>
-          {tareas.nombre}
-          <button onClick={() => borrar(tarea.id)}>🗑️</button>
+    <ul className="space-y-2">
+      {tareas.map((t) => (
+        <li
+          key={t.id}
+          className={\`bg-gray-100 p-2 rounded shadow flex justify-between items-center \${t.done ? "line-through text-gray-500" : ""}\`}
+        >
+          <span>{t.titulo}</span>
+          <button
+            onClick={() => borrarTarea(t.id)}
+            className="text-red-500 hover:text-red-700"
+          >
+            🗑️
+          </button>
         </li>
       ))}
     </ul>

@@ -2,7 +2,7 @@
 // 📍snippet ⇒ react-base-app 
 import { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
-import ListaTarea from "./components/ListaTarea";
+import ListaTareas from "./components/ListaTareas";
 
 function App() {
 
@@ -28,11 +28,11 @@ return (
   <div className="p-8 max-w-xl mx-auto">
     <h1 className="text-2xl font-bold mb-4">📋 Lista Tareas</h1>
     <Formulario setTareas={setTareas} />
-    <ListaItems tareas={tareas} setTareas={setTareas} />
+    <ListaTareas tareas={tareas} setTareas={setTareas} />
   </div>
 );
 
 }
 
-
+ 
 export default App;
